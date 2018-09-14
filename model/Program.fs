@@ -48,6 +48,8 @@ let main argv =
     //Train the model
     let model = pipeline.Train<IrisData, IrisPrediction>()
 
+    model.WriteAsync("model.zip") |> ignore
+
     // Test data for prediction
     let testInstance = IrisData()
     testInstance.SepalLength <- 3.3f
